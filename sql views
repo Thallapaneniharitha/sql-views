@@ -1,0 +1,109 @@
+mysql> select * from student1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   101 | rani    |     20000 |
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
++-------+---------+-----------+
+5 rows in set (0.02 sec)
+mysql> create view e1 as select * from student1;
+Query OK, 0 rows affected (0.04 sec)
+mysql> select* from e1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   101 | rani    |     20000 |
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
++-------+---------+-----------+
+5 rows in set (0.00 sec)
+mysql> insert into e1 values(106,'hari',28000);
+Query OK, 1 row affected (0.16 sec)
+mysql> select * from e1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   101 | rani    |     20000 |
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
+|   106 | hari    |     28000 |
++-------+---------+-----------+
+6 rows in set (0.00 sec)
+mysql> select * from student1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   101 | rani    |     20000 |
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
+|   106 | hari    |     28000 |
++-------+---------+-----------+
+6 rows in set (0.00 sec)
+mysql> select st_name,st_salary from e1;
++---------+-----------+
+| st_name | st_salary |
++---------+-----------+
+| rani    |     20000 |
+| raji    |     30000 |
+| sai     |     25000 |
+| raji    |     40000 |
+| vani    |     50000 |
+| hari    |     28000 |
++---------+-----------+
+6 rows in set (0.00 sec)
+mysql> select * from e1 where st_salary>28000;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   102 | raji    |     30000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
++-------+---------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> delete from e1 where st_salary=20000;
+Query OK, 1 row affected (0.08 sec)
+mysql> select * from e1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
+|   106 | hari    |     28000 |
++-------+---------+-----------+
+5 rows in set (0.00 sec)
+mysql> select * from student1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
+|   106 | hari    |     28000 |
++-------+---------+-----------+
+5 rows in set (0.00 sec)
+mysql> drop view e1;
+Query OK, 0 rows affected (0.09 sec)
+mysql> select * from student1;
++-------+---------+-----------+
+| st_id | st_name | st_salary |
++-------+---------+-----------+
+|   102 | raji    |     30000 |
+|   103 | sai     |     25000 |
+|   104 | raji    |     40000 |
+|   105 | vani    |     50000 |
+|   106 | hari    |     28000 |
++-------+---------+-----------+
+5 rows in set (0.00 sec)
